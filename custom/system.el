@@ -8,8 +8,9 @@
 (scroll-bar-mode -1)
 (global-linum-mode 1)
 (add-to-list 'default-frame-alist
-	     '(font . "Fira Mono-16"))
+	     '(font . "Fira Mono-14"))
 (setq create-lockfiles nil)
+(setq visible-bell 1)
 
 ;; Backup
 (defvar --backup-directory (concat user-emacs-directory "backups"))
