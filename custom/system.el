@@ -1,4 +1,11 @@
-;; Editor
+;;; system --- base system configuration
+
+;;; Commentary:
+;;; Sets up the base Emacs system configuration.
+
+;;; Code:
+
+;;; General
 (setq inhibit-splash-screen t
       inhibit-startup-echo-area-message t)
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -8,11 +15,11 @@
 (scroll-bar-mode -1)
 (global-linum-mode 1)
 (add-to-list 'default-frame-alist
-	     '(font . "Fira Mono-14"))
+	     '(font . "Fira Mono-15"))
 (setq create-lockfiles nil)
 (setq visible-bell 1)
 
-;; Backup
+;;; Backup
 (defvar --backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p --backup-directory))
     (make-directory --backup-directory t))
@@ -28,7 +35,9 @@
       auto-save-timeout 20
       auto-save-interval 200)
 
-;; Text
+;;; Text
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+
+;;; system.el ends here

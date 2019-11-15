@@ -1,5 +1,9 @@
-;; Refile
+;;; org-config --- configures org mode
 
+;;; Commentary:
+;;; Provide general org configurations and custom helper functions.
+
+;; Refile
 (advice-add 'org-agenda-quit :before 'org-save-all-org-buffers)
 (setq org-outline-path-complete-in-steps nil)
 (setq org-refile-targets '(("~/Dropbox/gtd/todo.org" :level . 1)
@@ -190,3 +194,5 @@
 (global-set-key "\C-ci" 'org-config/open-inbox)
 (global-set-key "\C-cT" 'org-config/open-task-journal)
 (global-set-key "\C-cj" 'org-config/open-journal)
+
+;;; org-config.el ends here
