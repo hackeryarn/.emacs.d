@@ -34,8 +34,15 @@
    '(aw-leading-car-face
      ((t (:inherit ace-jump-face-foreground :height 3.0))))))
 
-(use-package ace-flyspell
+(use-package flyspell-correct
   :ensure t)
+
+(use-package flyspell-correct-ivy
+  :ensure t
+  :bind (:map flyspell-mode-map
+	      ("C-;" . flyspell-correct-wrapper))
+  :config
+  (setq flyspell-correct-interface #'flyspell-correct-ivy))
 
 (use-package solarized-theme
   :ensure t
@@ -94,9 +101,29 @@
   :config
   (global-undo-tree-mode))
 
+(use-package hungry-delete
+  :ensure t
+  :config
+  (global-hungry-delete-mode))
+
+(use-package expand-region
+  :ensure t
+  :config
+  (global-set-key (kbd "C-=") 'er/expand-region))
+
 ;; Dev packages
 (use-package vterm
   :ensure t)
+
+(use-package dumb-jump
+  :ensure t
+  :bind (("M-g o" . dumb-jump-go-other-window)
+	 ("M-g j" . dumb-jump-go)
+	 ("M-g x" . dumb-jump-go-prefer-external)
+	 ("M-g z" . dumb-jump-go-prefer-external-other-window))
+  :config
+  (setq dumb-jump-selector 'ivy)
+  (dumb-jump-mode))
 
 (use-package projectile
   :ensure t
@@ -121,15 +148,8 @@
   :config
   (add-hook 'after-init-hook 'global-company-mode))
 
-(use-package hungry-delete
-  :ensure t
-  :config
-  (global-hungry-delete-mode))
-
-(use-package expand-region
-  :ensure t
-  :config
-  (global-set-key (kbd "C-=") 'er/expand-region))
+(use-package restclient
+  :ensure t)
 
 ;; Clojure
 (use-package clojure-mode
@@ -150,15 +170,15 @@
 (use-package paredit
   :ensure t
   :config
-  (add-hook 'emacs-lisp-mode-hook       #'paredit-mode)
+  (add-hook 'emacs-lisp-mode-hook                  #'paredit-mode)
   (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode)
-  (add-hook 'ielm-mode-hook             #'paredit-mode)
-  (add-hook 'lisp-mode-hook             #'paredit-mode)
-  (add-hook 'racket-mode-hook             #'paredit-mode)
-  (add-hook 'clojure-mode-hook             #'paredit-mode)
-  (add-hook 'cider-repl-mode-hook #'paredit-mode)
-  (add-hook 'lisp-interaction-mode-hook #'paredit-mode)
-  (add-hook 'scheme-mode-hook           #'paredit-mode))
+  (add-hook 'ielm-mode-hook                        #'paredit-mode)
+  (add-hook 'lisp-mode-hook                        #'paredit-mode)
+  (add-hook 'racket-mode-hook                      #'paredit-mode)
+  (add-hook 'clojure-mode-hook                     #'paredit-mode)
+  (add-hook 'cider-repl-mode-hook                  #'paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook            #'paredit-mode)
+  (add-hook 'scheme-mode-hook                      #'paredit-mode))
 
 ;; Web
 (use-package web-mode
@@ -177,8 +197,8 @@
 (use-package prettier-js
   :ensure t
   :config
-  (add-hook 'js2-mode-hook 'prettier-js-mode)
-  (add-hook 'web-mode-hook 'prettier-js-mode)
+  (add-hook 'js2-mode-hook        'prettier-js-mode)
+  (add-hook 'web-mode-hook        'prettier-js-mode)
   (add-hook 'typescript-mode-hook 'prettier-js-mode))
 
 ;; Go
