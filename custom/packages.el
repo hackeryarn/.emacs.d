@@ -28,15 +28,18 @@
 
 (use-package ace-window
   :ensure t
-  :init
+  :config
   (global-set-key [remap other-window] 'ace-window)
   (custom-set-faces
    '(aw-leading-car-face
      ((t (:inherit ace-jump-face-foreground :height 3.0))))))
 
+(use-package ace-flyspell
+  :ensure t)
+
 (use-package solarized-theme
   :ensure t
-  :init
+  :config
   (load-theme 'solarized-light t))
 
 (use-package counsel
@@ -86,11 +89,47 @@
   :config
   (global-set-key (kbd "C-x g") 'magit-status))
 
+(use-package undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode))
+
 ;; Dev packages
+(use-package vterm
+  :ensure t)
+
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-mode +1)
+  (global-set-key (kbd "C-c p") 'projectile-command-map)
+  (setq projectile-completion-system 'ivy))
+
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode t)
+  (setq flycheck-check-syntax-automatically '(mode-enabled save)))
+
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1))
+
 (use-package company
   :ensure t
   :config
   (add-hook 'after-init-hook 'global-company-mode))
+
+(use-package hungry-delete
+  :ensure t
+  :config
+  (global-hungry-delete-mode))
+
+(use-package expand-region
+  :ensure t
+  :config
+  (global-set-key (kbd "C-=") 'er/expand-region))
 
 ;; Clojure
 (use-package clojure-mode
@@ -121,13 +160,6 @@
   (add-hook 'lisp-interaction-mode-hook #'paredit-mode)
   (add-hook 'scheme-mode-hook           #'paredit-mode))
 
-;; JavaScript
-(use-package js2-mode
-  :ensure t)
-
-(use-package typescript-mode
-  :ensure t)
-
 ;; Web
 (use-package web-mode
   :ensure t)
@@ -135,6 +167,21 @@
 (use-package emmet-mode
   :ensure t)
 
+;; JavaScript
+(use-package js2-mode
+  :ensure t)
+
+(use-package typescript-mode
+  :ensure t)
+
+(use-package prettier-js
+  :ensure t
+  :config
+  (add-hook 'js2-mode-hook 'prettier-js-mode)
+  (add-hook 'web-mode-hook 'prettier-js-mode)
+  (add-hook 'typescript-mode-hook 'prettier-js-mode))
+
 ;; Go
 (use-package go-mode
   :ensure t)
+

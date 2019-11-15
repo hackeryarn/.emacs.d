@@ -26,3 +26,8 @@
       auto-save-default t
       auto-save-timeout 20
       auto-save-interval 200)
+
+;; Text
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)

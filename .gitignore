@@ -10,3 +10,5 @@ auto-save-list
 backups
 melpa-stable
 archive-contents
+bookmarks
+projectile-bookmarks.eld
