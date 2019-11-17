@@ -15,7 +15,7 @@
 (scroll-bar-mode -1)
 (global-linum-mode 1)
 (add-to-list 'default-frame-alist
-	     '(font . "Fira Mono-15"))
+	     '(font . "Fira Mono-13"))
 
 (setq create-lockfiles nil)
 (setq ring-bell-function 'ignore)

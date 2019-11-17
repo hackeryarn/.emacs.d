@@ -154,6 +154,14 @@
 (use-package restclient
   :ensure t)
 
+(use-package markdown-mode
+  :ensure t
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown")
+  :config (add-hook 'markdown-mode-hook 'turn-on-auto-fill))
+
 ;; Clojure
 (use-package clojure-mode
   :ensure t
@@ -170,18 +178,10 @@
 (use-package racket-mode
   :ensure t)
 
-(use-package paredit
+(use-package smartparens
   :ensure t
   :config
-  (add-hook 'emacs-lisp-mode-hook                  #'paredit-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode)
-  (add-hook 'ielm-mode-hook                        #'paredit-mode)
-  (add-hook 'lisp-mode-hook                        #'paredit-mode)
-  (add-hook 'racket-mode-hook                      #'paredit-mode)
-  (add-hook 'clojure-mode-hook                     #'paredit-mode)
-  (add-hook 'cider-repl-mode-hook                  #'paredit-mode)
-  (add-hook 'lisp-interaction-mode-hook            #'paredit-mode)
-  (add-hook 'scheme-mode-hook                      #'paredit-mode))
+  (smartparens-global-mode 1))
 
 ;; Web
 (use-package web-mode
