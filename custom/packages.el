@@ -99,11 +99,6 @@
   :config
   (global-set-key (kbd "C-x g") 'magit-status))
 
-(use-package undo-tree
-  :ensure t
-  :config
-  (global-undo-tree-mode))
-
 (use-package hungry-delete
   :ensure t
   :config
