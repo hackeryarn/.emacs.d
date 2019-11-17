@@ -87,13 +87,6 @@
   (global-set-key (kbd "C-:") 'avy-goto-char)
   (global-set-key (kbd "C-'") 'avy-goto-char-2))
 
-(use-package saveplace
-  :ensure t
-  :config
-  (progn
-   (setq-default save-place t)
-   (setq save-place-file (concat user-emacs-directory "places"))))
-
 (use-package magit
   :ensure t
   :config

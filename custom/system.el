@@ -20,6 +20,9 @@
 (setq create-lockfiles nil)
 (setq ring-bell-function 'ignore)
 
+(save-place-mode t)
+(setq save-place-file (concat user-emacs-directory "places"))
+
 ;;; Backup
 (defvar --backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p --backup-directory))
