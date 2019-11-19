@@ -84,7 +84,8 @@
   :ensure t
   :config
   (avy-setup-default)
-  (global-set-key (kbd "C-:") 'avy-goto-char)
+  (global-set-key (kbd "M-g w") 'avy-goto-word-1)
+  (global-set-key (kbd "M-g c") 'avy-goto-char)
   (global-set-key (kbd "C-'") 'avy-goto-char-2))
 
 (use-package magit
@@ -110,6 +111,7 @@
   :ensure t
   :bind (("M-g o" . dumb-jump-go-other-window)
 	 ("M-g j" . dumb-jump-go)
+	 ("M-g k" . dumb-jump-back)
 	 ("M-g x" . dumb-jump-go-prefer-external)
 	 ("M-g z" . dumb-jump-go-prefer-external-other-window))
   :config
