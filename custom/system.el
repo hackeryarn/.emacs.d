@@ -13,15 +13,20 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(global-linum-mode 1)
+(global-display-line-numbers-mode t)
 (add-to-list 'default-frame-alist
-	     '(font . "Fira Mono-13"))
+	     '(font . "Fira Mono-15"))
 
 (setq create-lockfiles nil)
+
 (setq ring-bell-function 'ignore)
 
 (save-place-mode t)
 (setq save-place-file (concat user-emacs-directory "places"))
+
+(setq flyspell-issue-message-flag nil)
+
+(setq sentence-end-double-space nil)
 
 ;;; Backup
 (defvar --backup-directory (concat user-emacs-directory "backups"))
@@ -43,5 +48,8 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+
+;;; Key bindings
+(global-set-key (kbd "M-o") 'other-window)
 
 ;;; system.el ends here
