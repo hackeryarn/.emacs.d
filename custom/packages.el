@@ -171,6 +171,7 @@
   :config
   (require 'smartparens-config)
   (smartparens-global-mode 1)
+
   (define-key smartparens-mode-map (kbd "C-M-f") 'sp-forward-sexp)
   (define-key smartparens-mode-map (kbd "C-M-b") 'sp-backward-sexp)
 
