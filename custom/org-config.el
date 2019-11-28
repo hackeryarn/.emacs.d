@@ -191,8 +191,5 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
-(global-set-key "\C-ci" 'org-config/open-inbox)
-(global-set-key "\C-cT" 'org-config/open-task-journal)
-(global-set-key "\C-cj" 'org-config/open-journal)
 
 ;;; org-config.el ends here

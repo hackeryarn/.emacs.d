@@ -31,6 +31,9 @@
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
+(use-package org-re-reveal
+  :ensure t)
+
 (use-package ace-window
   :ensure t
   :config
@@ -65,20 +68,29 @@
   (setq enable-recursive-minibuffers t)
 
   (global-set-key "\C-s" 'swiper)
+  (global-set-key (kbd "M-i") 'counsel-imenu)
+  (global-set-key (kbd "C-h a") 'counsel-apropos)
+  (global-set-key (kbd "M-y") 'counsel-yank-pop)
   (global-set-key (kbd "C-c C-r") 'ivy-resume)
   (global-set-key (kbd "<f6>") 'ivy-resume)
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+  (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
+  (global-set-key (kbd "C-x r b") 'counsel-bookmark)
   (global-set-key (kbd "<f1> f") 'counsel-describe-function)
   (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
   (global-set-key (kbd "<f1> l") 'counsel-find-library)
   (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
   (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+  (global-set-key (kbd "<f2> j") 'counsel-set-variable)
   (global-set-key (kbd "C-c g") 'counsel-git)
-  (global-set-key (kbd "C-c k") 'counsel-ag)
+  (global-set-key (kbd "C-c s") 'counsel-rg)
   (global-set-key (kbd "C-x l") 'counsel-locate)
   (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
   (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history))
+
+(use-package wgrep
+  :ensure t)
 
 (use-package avy
   :ensure t
@@ -210,8 +222,7 @@
   (define-key smartparens-mode-map (kbd "M-F") 'sp-forward-symbol)
   (define-key smartparens-mode-map (kbd "M-B") 'sp-backward-symbol)
 
-  (define-key smartparens-mode-map (kbd "C-\"") 'sp-change-inner)
-  (define-key smartparens-mode-map (kbd "M-i") 'sp-change-enclosing))
+  (define-key smartparens-mode-map (kbd "C-\"") 'sp-change-inner))
 
 ;; Web
 (use-package web-mode
@@ -237,5 +248,12 @@
 ;; Go
 (use-package go-mode
   :ensure t)
+
+;; Python
+(use-package elpy
+  :ensure t
+  :defer t
+  :init
+  (advice-add 'python-mode :before 'elpy-enable))
 
 ;;; packages.el ends here

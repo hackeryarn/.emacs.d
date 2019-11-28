@@ -9,6 +9,7 @@
 (setq inhibit-splash-screen t
       inhibit-startup-echo-area-message t)
 (fset 'yes-or-no-p 'y-or-n-p)
+(winner-mode t)
 (transient-mark-mode 1)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
