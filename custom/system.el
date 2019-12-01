@@ -16,7 +16,9 @@
 (scroll-bar-mode -1)
 (global-display-line-numbers-mode t)
 (add-to-list 'default-frame-alist
-	     '(font . "Fira Mono-15"))
+	     '(font . "Triplicate T4c-13"))
+(text-scale-set 0)
+
 
 (setq create-lockfiles nil)
 
