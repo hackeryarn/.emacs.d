@@ -92,16 +92,6 @@
 	  '(file "~/Dropbox/gtd/todo.org")
 	  (concat "* TODO %i%? :" tag ":"))))
 
-(defun org-template-project ()
-  '("p" "Project" entry
-    (file "~/Dropbox/gtd/todo.org")
-    "* PROJECT %i%? [%]"))
-
-(defun org-template-talk ()
-  '("z" "Talk" entry
-    (file "~/Dropbox/gtd/todo.org")
-    "* TALK %i%? :%^{who}:"))
-
 (defun org-template-todo ()
   '("i" "Inbox" entry
     (file "~/Dropbox/gtd/inbox.org")
@@ -117,11 +107,21 @@
     (file+olp+datetree "~/Dropbox/org/task-journal.org")
     "* %U\n%i%?" :tree-type week))
 
+(defun org-template-week ()
+  '("w" "Weekly Review" entry
+    (file+olp+datetree "~/Dropbox/org/weekly-review.org")
+    "* Wins\n- %?\n* Struggles\n- \n* Ball Drops\n- " :tree-type week))
+
+(defun org-template-month ()
+  '("m" "Monthly Review" entry
+    (file+olp+datetree "~/Dropbox/org/monthly-review.org")
+    "* Wins\n- %?\n* Struggles\n- \n* Ball Drops\n- "))
+
 (setq org-capture-templates
       (list (org-template-todo)
 	    (org-template-journal)
-	    (org-template-talk)
-	    (org-template-project)
+	    (org-template-week)
+	    (org-template-month)
 	    (org-template-task)))
 
 (defun org-config/open-inbox ()
