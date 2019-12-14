@@ -229,6 +229,7 @@
   :ensure t)
 
 (use-package emmet-mode
+  :hook (html-mode)
   :ensure t)
 
 ;; JavaScript
@@ -254,6 +255,7 @@
   :ensure t
   :defer t
   :init
+  (setq elpy-rpc-python-command "python3")
   (advice-add 'python-mode :before 'elpy-enable))
 
 ;;; packages.el ends here

@@ -13,6 +13,7 @@
 (load "system.el")
 (load "packages.el")
 (load "org-config.el")
+(load "functions.el")
 
 ;; automatic configs
 (custom-set-variables

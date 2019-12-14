@@ -6,6 +6,7 @@
 ;;; Code:
 
 ;;; General
+(require 'dired-x)
 (setq inhibit-splash-screen t
       inhibit-startup-echo-area-message t)
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -16,8 +17,9 @@
 (scroll-bar-mode -1)
 (global-display-line-numbers-mode t)
 (add-to-list 'default-frame-alist
-	     '(font . "Triplicate T4c-13"))
+	     '(font . "Triplicate T4c-16"))
 (text-scale-set 0)
+(global-auto-revert-mode t)
 
 
 (setq create-lockfiles nil)
@@ -51,6 +53,7 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+(global-set-key [remap dabbrev-expand] 'hippie-expand)
 
 ;;; Key bindings
 (global-set-key (kbd "M-o") 'other-window)
