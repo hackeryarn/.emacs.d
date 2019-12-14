@@ -3,6 +3,14 @@
 ;;; Commentary:
 ;;; Provide general org configurations and custom helper functions.
 
+;; Babel
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((shell . t)
+   (clojure . t)
+   (python . t)
+   (scheme . t)
+   (emacs-lisp . t)))
 ;; Refile
 (advice-add 'org-agenda-quit :before 'org-save-all-org-buffers)
 (setq org-outline-path-complete-in-steps nil)
@@ -10,7 +18,6 @@
 			   ("~/Dropbox/gtd/work.org" :level . 1)))
 
 ;; Agenda Custom Command
-
 (setq org-agenda-start-day "-1d")
 
 (defun create-org-agenda-skip-entry-if (tag)
