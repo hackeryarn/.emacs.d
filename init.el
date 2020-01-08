@@ -23,7 +23,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (elpy org-re-reveal wgrep smartparens markdown-mode restclient dumb-jump flyspell-correct-ivy projectile prettier-js vterm expand-region hungry-delete undo-tree yasnippet flycheck ace-flyspell emmet-mode web-mode go-mode typescript-mode js2-mode racket-mode cider clojure-mode paredit magit company solarized-theme ace-window org-bullets which-key use-package))))
+    (exwm counsel-projectile elpy org-re-reveal wgrep smartparens markdown-mode restclient dumb-jump flyspell-correct-ivy projectile prettier-js vterm expand-region hungry-delete undo-tree yasnippet flycheck ace-flyspell emmet-mode web-mode go-mode typescript-mode js2-mode racket-mode cider clojure-mode paredit magit company solarized-theme ace-window org-bullets which-key use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

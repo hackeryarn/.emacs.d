@@ -57,5 +57,6 @@
 
 ;;; Key bindings
 (global-set-key (kbd "M-o") 'other-window)
+(global-set-key (kbd "C-?") 'comment-or-uncomment-region)
 
 ;;; system.el ends here

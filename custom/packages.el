@@ -137,6 +137,11 @@
   (global-set-key (kbd "C-c p") 'projectile-command-map)
   (setq projectile-completion-system 'ivy))
 
+(use-package counsel-projectile
+  :ensure t
+  :config
+  (projectile-mode))
+
 (use-package flycheck
   :ensure t
   :config
@@ -203,7 +208,6 @@
   (define-key smartparens-mode-map (kbd "C-M-w") 'sp-copy-sexp)
 
   (define-key smartparens-mode-map (kbd "M-<delete>") 'sp-unwrap-sexp)
-  (define-key smartparens-mode-map (kbd "M-<backspace>") 'sp-backward-unwrap-sexp)
 
   (define-key smartparens-mode-map (kbd "C-<right>") 'sp-forward-slurp-sexp)
   (define-key smartparens-mode-map (kbd "C-<left>") 'sp-forward-barf-sexp)
