@@ -116,8 +116,6 @@
   (global-set-key (kbd "C-=") 'er/expand-region))
 
 ;; Dev packages
-(use-package vterm
-  :ensure t)
 
 (use-package dumb-jump
   :ensure t

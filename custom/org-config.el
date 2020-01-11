@@ -14,8 +14,8 @@
 ;; Refile
 (advice-add 'org-agenda-quit :before 'org-save-all-org-buffers)
 (setq org-outline-path-complete-in-steps nil)
-(setq org-refile-targets '(("~/Dropbox/gtd/todo.org" :level . 1)
-			   ("~/Dropbox/gtd/work.org" :level . 1)))
+(setq org-refile-targets '(("~/Sync/gtd/todo.org" :level . 1)
+			   ("~/Sync/gtd/work.org" :level . 1)))
 
 ;; Agenda Custom Command
 (setq org-agenda-start-day "-1d")
@@ -40,38 +40,38 @@
    (list 'agenda ""
 	 (list
 	  (list 'org-agenda-span span)
-	  '(org-agenda-files '("~/Dropbox/gtd/todo.org"))))))
+	  '(org-agenda-files '("~/Sync/gtd/todo.org"))))))
 
 (defun create-home-task-list ()
   '((todo "TODO"
 	  ((org-agenda-overriding-header "Todo")
 	   (org-agenda-todo-ignore-deadlines 'all)
 	   (org-agenda-todo-ignore-scheduled 'all)
-	   (org-agenda-files '("~/Dropbox/gtd/todo.org"))))
+	   (org-agenda-files '("~/Sync/gtd/todo.org"))))
     (todo "WAITING"
 	  ((org-agenda-overriding-header "Waiting")
 	   (org-agenda-todo-ignore-deadlines 'all)
 	   (org-agenda-todo-ignore-scheduled 'all)
-	   (org-agenda-files '("~/Dropbox/gtd/todo.org"))))))
+	   (org-agenda-files '("~/Sync/gtd/todo.org"))))))
 
 (defun create-work-agenda-custom-command (span)
   (list
    (list 'agenda ""
 	 (list
 	  (list 'org-agenda-span span)
-	  '(org-agenda-files '("~/Dropbox/gtd/work.org"))))))
+	  '(org-agenda-files '("~/Sync/gtd/work.org"))))))
 
 (defun create-work-task-list ()
   '((todo "TODO"
 	  ((org-agenda-overriding-header "Todo")
 	   (org-agenda-todo-ignore-deadlines 'all)
 	   (org-agenda-todo-ignore-scheduled 'all)
-	   (org-agenda-files '("~/Dropbox/gtd/work.org"))))
+	   (org-agenda-files '("~/Sync/gtd/work.org"))))
     (todo "WAITING"
 	  ((org-agenda-overriding-header "Waiting")
 	   (org-agenda-todo-ignore-deadlines 'all)
 	   (org-agenda-todo-ignore-scheduled 'all)
-	   (org-agenda-files '("~/Dropbox/gtd/work.org"))))))
+	   (org-agenda-files '("~/Sync/gtd/work.org"))))))
 
 (defun create-daily-home-agenda-custom-command ()
   (list "h" "Home" (append (create-home-agenda-custom-command 3)
@@ -86,7 +86,7 @@
 
 ;; Agenda
 (setq org-agenda-prefix-format " %b")
-(setq org-agenda-files '("~/Dropbox/gtd/todo.org"))
+(setq org-agenda-files '("~/Sync/gtd/todo.org"))
 (setq org-agenda-custom-commands (create-org-agenda-custom-commands))
 
 ;; Capture
@@ -96,32 +96,32 @@
 (defun create-tag-capture (tag)
   (let ((tag (car tag)))
     (list tag (capitalize tag) 'entry
-	  '(file "~/Dropbox/gtd/todo.org")
+	  '(file "~/Sync/gtd/todo.org")
 	  (concat "* TODO %i%? :" tag ":"))))
 
 (defun org-template-todo ()
   '("i" "Inbox" entry
-    (file "~/Dropbox/gtd/inbox.org")
+    (file "~/Sync/gtd/inbox.org")
     "* TODO %i%?"))
 
 (defun org-template-journal ()
   '("j" "Journal" entry
-    (file+olp+datetree "~/Dropbox/org/journal.org")
+    (file+olp+datetree "~/Sync/org/journal.org")
     "* %?" :tree-type week))
 
 (defun org-template-task ()
   '("t" "Task Journal" entry
-    (file+olp+datetree "~/Dropbox/org/task-journal.org")
+    (file+olp+datetree "~/Sync/org/task-journal.org")
     "* %U\n%i%?" :tree-type week))
 
 (defun org-template-week ()
   '("w" "Weekly Review" entry
-    (file+olp+datetree "~/Dropbox/org/weekly-review.org")
+    (file+olp+datetree "~/Sync/org/weekly-review.org")
     "* Wins\n- %?\n* Struggles\n- \n* Ball Drops\n- " :tree-type week))
 
 (defun org-template-month ()
   '("m" "Monthly Review" entry
-    (file+olp+datetree "~/Dropbox/org/monthly-review.org")
+    (file+olp+datetree "~/Sync/org/monthly-review.org")
     "* Wins\n- %?\n* Struggles\n- \n* Ball Drops\n- "))
 
 (setq org-capture-templates
@@ -134,17 +134,17 @@
 (defun org-config/open-inbox ()
   "Opens my gtd inbox file"
   (interactive)
-  (find-file "~/Dropbox/gtd/inbox.org"))
+  (find-file "~/Sync/gtd/inbox.org"))
 
 (defun org-config/open-journal ()
   "Opens my journal file"
   (interactive)
-  (find-file "~/Dropbox/org/journal.org"))
+  (find-file "~/Sync/org/journal.org"))
 
 (defun org-config/open-task-journal ()
   "Opens my journal file"
   (interactive)
-  (find-file "~/Dropbox/org/task-journal.org"))
+  (find-file "~/Sync/org/task-journal.org"))
 
 (defun org-config/get-day (post)
   "Gets the day number from the post"
