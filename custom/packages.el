@@ -55,7 +55,9 @@
 (use-package solarized-theme
   :ensure t
   :config
-  (load-theme 'solarized-light t))
+  (if (string-equal "hackeryarn" (user-login-name))
+      (load-theme 'solarized-dark t)
+      (load-theme 'solarized-light t)))
 
 (use-package counsel
   :ensure t)
