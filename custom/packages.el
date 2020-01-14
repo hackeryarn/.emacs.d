@@ -169,6 +169,12 @@
   :init (setq markdown-command "multimarkdown")
   :config (add-hook 'markdown-mode-hook 'turn-on-auto-fill))
 
+(use-package yaml-mode
+  :ensure t)
+
+(use-package ripgrep
+  :ensure t)
+
 ;; Clojure
 (use-package clojure-mode
   :ensure t
@@ -179,7 +185,12 @@
   (add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode)))
 
 (use-package cider
-  :ensure t)
+  :ensure t
+  :config
+  (cider-register-cljs-repl-type
+   'bro
+   "(do (user/run)
+        (user/browser-repl))"))
 
 ;; Racket
 (use-package racket-mode

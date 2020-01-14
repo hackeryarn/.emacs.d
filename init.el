@@ -26,7 +26,7 @@
     ("0fffa9669425ff140ff2ae8568c7719705ef33b7a927a0ba7c5e2ffcfac09b75" default)))
  '(package-selected-packages
    (quote
-    (exwm counsel-projectile elpy org-re-reveal wgrep smartparens markdown-mode restclient dumb-jump flyspell-correct-ivy projectile prettier-js vterm expand-region hungry-delete undo-tree yasnippet flycheck ace-flyspell emmet-mode web-mode go-mode typescript-mode js2-mode racket-mode cider clojure-mode paredit magit company solarized-theme ace-window org-bullets which-key use-package))))
+    (ripgrep yaml-mode exwm counsel-projectile elpy org-re-reveal wgrep smartparens markdown-mode restclient dumb-jump flyspell-correct-ivy projectile prettier-js vterm expand-region hungry-delete undo-tree yasnippet flycheck ace-flyspell emmet-mode web-mode go-mode typescript-mode js2-mode racket-mode cider clojure-mode paredit magit company solarized-theme ace-window org-bullets which-key use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
